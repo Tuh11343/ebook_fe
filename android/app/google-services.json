@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1044457303244",
+    "project_id": "tuhebook",
+    "storage_bucket": "tuhebook.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044457303244:android:5e4c524fd9c5e8dfd9a669",
+        "android_client_info": {
+          "package_name": "com.example.ebook_tuh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1044457303244-4hnmb5vlbfm7kr8kv43v07dqgri0iev0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArf7JF2AEbjhi9qYjOVjfFwcFrp7v1QwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1044457303244-4hnmb5vlbfm7kr8kv43v07dqgri0iev0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1044457303244-q5u04kll8q9nl8ckhncu77o0a6q7sa9n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ebookTuh"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
