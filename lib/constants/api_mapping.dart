@@ -4,6 +4,7 @@ class APIMapping {
   APIMapping._();
 
   static const String hostName = 'http://192.168.1.194:5000';
+  // static const String hostName='https://ebooktuh.com';
   static const String createAccount = '/api/v1/account';
 
   /*---------------- Auth -------------------*/

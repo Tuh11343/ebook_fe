@@ -25,7 +25,7 @@ class SubscriptionCubit extends Cubit<SubscriptionState> {
         ));
         return;
       }
-      UserSubscription userSubscription = await AppControllers()
+      UserSubscription? userSubscription = await AppControllers()
           .userSubscription
           .getActiveSubscription(user.userId);
       final availablePlans =
@@ -57,7 +57,7 @@ class SubscriptionCubit extends Cubit<SubscriptionState> {
 
       final responseData =
           await AppControllers().payment.createPremiumPaymentIntent(
-                amount: (plan.price * 100).toInt(),
+                amount: plan.price.toInt(),
                 currency: 'VND',
                 planId: plan.planId,
                 userId: userId,
@@ -141,9 +141,19 @@ class SubscriptionCubit extends Cubit<SubscriptionState> {
         // Đợi một chút để đảm bảo thanh toán đã được xử lý hoàn toàn
         await Future.delayed(const Duration(milliseconds: 500));
 
-        UserSubscription updatedSubscription = await AppControllers()
+        UserSubscription? updatedSubscription = await AppControllers()
             .userSubscription
             .getActiveSubscription(userId);
+
+        if(updatedSubscription==null){
+          emit(state.copyWith(
+            status: SubscriptionStatus.paymentFailure,
+            errorMessage: 'Lỗi thanh toán',
+            clientSecretForPayment: null,
+            paymentIntentId: null,
+          ));
+          return;
+        }
 
         emit(state.copyWith(
           status: SubscriptionStatus.paymentSuccess,
