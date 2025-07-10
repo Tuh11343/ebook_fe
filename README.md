@@ -48,7 +48,7 @@ linux/               # Mã nguồn Linux
 - CachedNetworkImage, ReadMore, GoRouter, v.v.
 
 ## Hình ảnh minh họa
-![Giao diện nghe sách](https://ibb.co/JwnbpHnQ)
+![Giao diện nghe sách](https://i.ibb.co/gLyXWJyV/38fcb19623b995e7cca816.jpg)
 
 ## Bản quyền
 Dự án phát triển phục vụ học tập, phi thương mại.
