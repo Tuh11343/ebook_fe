@@ -48,7 +48,11 @@ linux/               # Mã nguồn Linux
 - CachedNetworkImage, ReadMore, GoRouter, v.v.
 
 ## Hình ảnh minh họa
-<img src="https://i.ibb.co/gLyXWJyV/38fcb19623b995e7cca816.jpg" alt="Trang nghe sách" width="300">
+<div align="center">
+  <h3>Màn hình nghe, đọc sách</h3>
+  <img src="https://ibb.co/JwnbpHnQ" alt="Màn hình nghe sách nói" width="300" style="margin-right: 15px;">
+  <img src="https://ibb.co/Kj2ChHxh" alt="Màn hình đọc sách" width="300" style="margin-right: 15px;">
+</div>
 
 ## Bản quyền
 Dự án phát triển phục vụ học tập, phi thương mại.
