@@ -47,20 +47,8 @@ linux/               # Mã nguồn Linux
 - BLoC/Cubit (flutter_bloc)
 - CachedNetworkImage, ReadMore, GoRouter, v.v.
 
-## Hướng dẫn cài đặt
-1. Clone repo:
-   ```bash
-   git clone https://github.com/yourusername/ebook_tuh.git
-   cd ebook_tuh
-   ```
-2. Cài đặt dependencies:
-   ```bash
-   flutter pub get
-   ```
-3. Chạy ứng dụng:
-   ```bash
-   flutter run
-   ```
+## Hình ảnh minh họa
+![Giao diện nghe sách](https://ibb.co/JwnbpHnQ)
 
 ## Bản quyền
 Dự án phát triển phục vụ học tập, phi thương mại.
