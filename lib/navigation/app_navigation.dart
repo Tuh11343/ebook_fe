@@ -3,7 +3,10 @@
 import 'package:ebook_tuh/constants/app_secure_storage.dart';
 import 'package:ebook_tuh/views/audio_book/audio_cubit.dart';
 import 'package:ebook_tuh/views/auth/auth_cubit.dart';
+import 'package:ebook_tuh/views/auth/enter_otp_page.dart';
 import 'package:ebook_tuh/views/auth/login_prompt_screen.dart';
+import 'package:ebook_tuh/views/auth/request_reset_password_page.dart';
+import 'package:ebook_tuh/views/auth/set_newpassword_page.dart';
 import 'package:ebook_tuh/views/auth/sign_up/sign_up_page.dart';
 import 'package:ebook_tuh/views/book_reader/book_reader_bloc.dart';
 import 'package:ebook_tuh/views/home/home_bloc.dart';
@@ -63,6 +66,12 @@ class AppNavigation {
   static final _rootNavigatorUserProfileKey =
   GlobalKey<NavigatorState>(debugLabel: 'Shell User Profile');
   static final _rootNavigatorLoginPromptKey =
+  GlobalKey<NavigatorState>(debugLabel: 'Shell Login Prompt');
+  static final _rootNavigatorRequestResetPasswordKey =
+  GlobalKey<NavigatorState>(debugLabel: 'Shell Login Prompt');
+  static final _rootNavigatorEnterOTPKey =
+  GlobalKey<NavigatorState>(debugLabel: 'Shell Login Prompt');
+  static final _rootNavigatorSetNewPasswordKey =
   GlobalKey<NavigatorState>(debugLabel: 'Shell Login Prompt');
 
 
@@ -245,30 +254,6 @@ class AppNavigation {
                       },),
                   ]),
 
-              //
-              // //Branch UserSI
-              // StatefulShellBranch(
-              //     navigatorKey: _rootNavigatorUserSIKey,
-              //     routes: [
-              //       GoRoute(
-              //           path: '/userSI',
-              //           name: 'userSI',
-              //           builder: (context, state) {
-              //             return UserSignIn(
-              //               key: state.pageKey,
-              //             );
-              //           },
-              //           routes: [
-              //             GoRoute(
-              //               path: 'payment',
-              //               name: 'payment',
-              //               builder: (context, state) {
-              //                 return PaymentView(key: state.pageKey);
-              //               },
-              //             )
-              //           ]),
-              //     ]),
-              //
 
               //Branch Book Reader
               StatefulShellBranch(
@@ -318,26 +303,55 @@ class AppNavigation {
                   // Nếu bạn có route '/bookReader' ở đây trước đó, hãy xóa nó đi
                 ],
               ),
-              //
-              // //Branch Author
-              // StatefulShellBranch(
-              //     navigatorKey: _rootNavigatorAuthorKey,
-              //     routes: [
-              //       GoRoute(
-              //         path: '/author',
-              //         name: 'author',
-              //         builder: (context, state) {
-              //           final author = state.extra as Author;
-              //           return ChangeNotifierProvider(
-              //             create: (context) => AuthorController(),
-              //             child: AuthorView(
-              //               author: author,
-              //               key: state.pageKey,
-              //             ),
-              //           );
-              //         },
-              //       ),
-              //     ])
+
+
+              //Branch request reset password
+              StatefulShellBranch(
+                navigatorKey: _rootNavigatorRequestResetPasswordKey,
+                routes: [
+                  GoRoute(
+                    path: '/requestResetPassword',
+                    name: 'requestResetPassword',
+                    builder: (context, state) {
+                      return RequestPasswordResetScreen(key: state.pageKey,);
+                    },
+                  ),
+                  // Nếu bạn có route '/bookReader' ở đây trước đó, hãy xóa nó đi
+                ],
+              ),
+
+              //Branch enter otp
+              StatefulShellBranch(
+                navigatorKey: _rootNavigatorEnterOTPKey,
+                routes: [
+                  GoRoute(
+                    path: '/enterOTPPage',
+                    name: 'enterOTPPage',
+                    builder: (context, state) {
+                      final String email=state.extra as String;
+                      return EnterOtpScreen(key: state.pageKey,email: email,);
+                    },
+                  ),
+                  // Nếu bạn có route '/bookReader' ở đây trước đó, hãy xóa nó đi
+                ],
+              ),
+
+              //Branch Set New Password
+              StatefulShellBranch(
+                navigatorKey: _rootNavigatorSetNewPasswordKey,
+                routes: [
+                  GoRoute(
+                    path: '/setNewPassword',
+                    name: 'setNewPassword',
+                    builder: (context, state) {
+                      Map<String,dynamic> result=state.extra as Map<String,dynamic>;
+                      return SetNewPasswordScreen(key: state.pageKey,email: result['email'],otp: result['otp'],);
+                    },
+                  ),
+                  // Nếu bạn có route '/bookReader' ở đây trước đó, hãy xóa nó đi
+                ],
+              ),
+
             ]),
       ]);
 }

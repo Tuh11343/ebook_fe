@@ -196,4 +196,49 @@ class AuthController {
       rethrow;
     }
   }
+
+
+  Future<String> requestPasswordReset(String email) async {
+    try {
+      final message = await AppData().auth.requestPasswordReset(email);
+      return message;
+    } catch (e) {
+      print('Lỗi không mong muốn trong AuthController.requestBackendPasswordReset: $e');
+      throw Exception('Đã xảy ra lỗi không mong muốn. Vui lòng thử lại.');
+    }
+  }
+
+  Future<String> resetPassword(String email, String otp, String newPassword) async {
+    try {
+      final message = await AppData().auth.resetPassword(email, otp, newPassword);
+      return message;
+    } catch (e) {
+      print('Lỗi không mong muốn trong AuthController.performPasswordReset: $e');
+      throw Exception('Đã xảy ra lỗi không mong muốn. Vui lòng thử lại.');
+    }
+  }
+
+  Future<VerifyOtpResult> verifyOtp(String email, String otp) async {
+    try {
+      final result = await AppData().auth.verifyOtp(email, otp);
+      final String message = result['status']['message'] ?? 'Thành công.';
+      final bool success = result['contents'] as bool;
+      return VerifyOtpResult(success: success, message: message);
+    } catch (e) {
+      throw Exception('Đã xảy ra lỗi không mong muốn. Vui lòng thử lại.');
+    }
+  }
+
+}
+
+class VerifyOtpResult {
+  final bool success;
+  final String message;
+
+  VerifyOtpResult({required this.success, required this.message});
+
+  @override
+  String toString() {
+    return 'VerifyOtpResult(success: $success, message: $message)';
+  }
 }
