@@ -42,10 +42,8 @@ linux/               # Mã nguồn Linux
 
 ## Công nghệ sử dụng
 - Flutter 3.x
-- Dart
-- Firebase (Auth, Storage, Firestore)
-- BLoC/Cubit (flutter_bloc)
-- CachedNetworkImage, ReadMore, GoRouter, v.v.
+- Dart 3.x
+- Android Studio Giraffe | 2022.3.1 Patch 1
 
 ## Hình ảnh minh họa
 <div>
