@@ -50,8 +50,8 @@ linux/               # Mã nguồn Linux
 ## Hình ảnh minh họa
 <div align="center">
   <h3>Màn hình nghe, đọc sách</h3>
-  <img src="https://ibb.co/JwnbpHnQ" alt="Màn hình nghe sách nói" width="300" style="margin-right: 15px;">
-  <img src="https://ibb.co/Kj2ChHxh" alt="Màn hình đọc sách" width="300" style="margin-right: 15px;">
+  <img src="https://i.ibb.co/gLyXWJyV/38fcb19623b995e7cca816.jpg" alt="Màn hình nghe sách nói" width="300" style="margin-right: 15px;">
+  <img src="https://i.ibb.co/23sxp4Xt/13a74eb7dc986ac633899.jpg" alt="Màn hình đọc sách" width="300" style="margin-right: 15px;">
 </div>
 
 ## Bản quyền
