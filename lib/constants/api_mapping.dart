@@ -4,6 +4,7 @@ class APIMapping {
   APIMapping._();
 
   static const String hostName = 'http://192.168.1.194:5000';
+  // static const String hostName='https://ebooktuh.com';
   static const String createAccount = '/api/v1/account';
 
   /*---------------- Auth -------------------*/
@@ -13,6 +14,9 @@ class APIMapping {
   static const String getAvatarUrl = '/api/v1/auth/avatarUrl';
   static const String requestAvatarUpload = '/api/v1/auth/requestAvatarUpload';
   static const String updateProfile='/api/v1/auth/updateProfile';
+  static const String requestPasswordReset='/api/v1/auth/requestPasswordReset';
+  static const String resetPassword='/api/v1/auth/resetPassword';
+  static const String verifyOtp='/api/v1/auth/verifyOtp';
 
   /*---------------- Author -------------------*/
   static const String findAllAuthor = '/api/v1/authors';
@@ -66,6 +70,9 @@ class APIMapping {
       login,
       register,
       googleSignIn,
+      requestPasswordReset,
+      verifyOtp,
+      resetPassword,
 
       /*---------------- Book -------------------*/
       findAllBook,

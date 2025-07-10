@@ -13,9 +13,9 @@ class SubscriptionData extends DioBase {
           queryParameters: {'userId': userId},
           options: Options(
             headers: {
-              'Authorization': 'Bearer $token', // <-- THÊM BEARER TOKEN VÀO ĐÂY
+              'Authorization': 'Bearer $token',
               'Content-Type':
-                  'application/json', // Thường là JSON cho POST request
+                  'application/json',
             },
           ));
 

@@ -1,4 +1,5 @@
 import 'package:ebook_tuh/controllers/app_controller.dart';
+import 'package:ebook_tuh/controllers/auth_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -132,4 +133,89 @@ class AuthCubit extends Cubit<AuthState> {
         status: AuthStatus.initial
     ));
   }
+
+  Future<void> requestPasswordReset(String email) async {
+    String message='';
+    emit(state.copyWith(
+      status: AuthStatus.loading,
+      actionType: AuthActionType.requestPasswordReset,
+      errorMessage: null,
+      successMessage: null,
+    ));
+    try {
+      message = await AppControllers().auth.requestPasswordReset(email);
+
+      emit(state.copyWith(
+        status: AuthStatus.success,
+        actionType: AuthActionType.requestPasswordReset,
+        successMessage: message,
+      ));
+    } catch (e) {
+      emit(state.copyWith(
+        status: AuthStatus.failure,
+        actionType: AuthActionType.requestPasswordReset,
+        errorMessage: message,
+      ));
+    }
+  }
+
+  Future<void> resetPassword(String email, String otp, String newPassword) async {
+    String message='';
+    emit(state.copyWith(
+      status: AuthStatus.loading,
+      actionType: AuthActionType.resetPassword,
+      errorMessage: null,
+      successMessage: null,
+    ));
+    try {
+      message = await AppControllers().auth.resetPassword(email, otp, newPassword);
+
+      emit(state.copyWith(
+        status: AuthStatus.success,
+        actionType: AuthActionType.resetPassword,
+        successMessage: message,
+      ));
+    } catch (e) {
+      emit(state.copyWith(
+        status: AuthStatus.failure,
+        actionType: AuthActionType.resetPassword,
+        errorMessage: message,
+      ));
+    }
+  }
+
+  Future<void> verifyOtp(String email, String otp) async {
+    late VerifyOtpResult verifyOtpResult;
+    emit(state.copyWith(
+      status: AuthStatus.loading,
+      actionType: AuthActionType.verifyOtp,
+      errorMessage: null,
+      successMessage: null,
+    ));
+    try {
+      verifyOtpResult = await AppControllers().auth.verifyOtp(email, otp);
+
+      if(verifyOtpResult.success==true){
+        emit(state.copyWith(
+          status: AuthStatus.success,
+          actionType: AuthActionType.verifyOtp,
+          successMessage: verifyOtpResult.message,
+        ));
+      }else{
+        emit(state.copyWith(
+          status: AuthStatus.failure,
+          actionType: AuthActionType.verifyOtp,
+          errorMessage: verifyOtpResult.message,
+        ));
+      }
+    } catch (e) {
+      String errorMessage = 'Đã xảy ra lỗi khi xác thực OTP.';
+      emit(state.copyWith(
+        status: AuthStatus.failure,
+        actionType: AuthActionType.verifyOtp,
+        errorMessage: errorMessage,
+      ));
+    }
+  }
+
 }

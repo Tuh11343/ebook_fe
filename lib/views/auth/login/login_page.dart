@@ -194,7 +194,8 @@ class _LoginPageState extends State<LoginPage> {
                           alignment: Alignment.centerRight,
                           child: TextButton(
                             onPressed: () {
-                              print('Forget password pressed');
+                              context.read<MainWrapperCubit>().setBottomNavigationVisibility(false);
+                              context.push('/requestResetPassword');
                             },
                             child: Text(
                               'Quên mật khẩu',

@@ -4,9 +4,12 @@ import '../data/app_data.dart';
 
 class UserSubscriptionController {
 
-  Future<UserSubscription> getActiveSubscription(String userId) async {
+  Future<UserSubscription?> getActiveSubscription(String userId) async {
     try {
       final result = await AppData().userSubscription.getActiveSubscription(userId);
+      if(result==null){
+        return null;
+      }
       return UserSubscription.fromJson(result);
     } catch (e) {
       print('Error fetching all Subscriptions: $e');

@@ -180,7 +180,68 @@ class AuthData extends DioBase {
     }
   }
 
+  Future<String> requestPasswordReset(String email) async {
+    try {
+      final response = await super.dio.post(
+        APIMapping.requestPasswordReset,
+        data: {
+          'email': email,
+        },
+      );
 
+      if (response.statusCode == 200 && response.data['status']['code'] == 200) {
+        return response.data['status']['message'];
+      } else {
+        throw Exception(response.data['status']['message'] ?? 'Lỗi không xác định khi yêu cầu OTP.');
+      }
+    } catch (e) {
+      print('Lỗi không mong muốn khi yêu cầu OTP: $e');
+      rethrow;
+    }
+  }
+
+  Future<String> resetPassword(String email, String otp, String newPassword) async {
+    try {
+      final response = await super.dio.post(
+        APIMapping.resetPassword,
+        data: {
+          'email': email,
+          'otp': otp,
+          'newPassword': newPassword,
+        },
+      );
+
+      if (response.statusCode == 200 && response.data['status']['code'] == 200) {
+        return response.data['status']['message'];
+      } else {
+        throw Exception(response.data['status']['message'] ?? 'Lỗi không xác định khi đặt lại mật khẩu.');
+      }
+    } catch (e) {
+      print('Lỗi không mong muốn khi đặt lại mật khẩu: $e');
+      rethrow;
+    }
+  }
+
+  Future<Map<String,dynamic>> verifyOtp(String email, String otp) async {
+    try {
+      final response = await super.dio.post(
+        APIMapping.verifyOtp,
+        data: {
+          'email': email,
+          'otp': otp,
+        },
+      );
+
+      if (response.statusCode == 200 && response.data['status']['code'] == 200) {
+        return response.data;
+      } else {
+        throw response.data['status']['code'];
+      }
+    } catch (e) {
+      print('Lỗi không mong muốn khi xác thực OTP: $e');
+      rethrow;
+    }
+  }
 
 
 }

@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_stripe/flutter_stripe.dart' hide Card;
 
-import '../../constants/app_color.dart';
 import '../../models/premium_plans.dart';
 import '../../models/user_subscription.dart';
 
@@ -326,32 +325,31 @@ class _SubscriptionPlansPageState extends State<SubscriptionPlansPage>
                   child: const Icon(
                     Icons.star,
                     color: Colors.white,
-                    size: 24,
+                    size: 20,
                   ),
                 ),
                 const SizedBox(width: 12),
                 const Text(
                   'Gói đăng ký hiện tại',
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: AppFontSize.large,
                     fontWeight: FontWeight.w600,
                     color: Colors.white,
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 15),
             Text(
               currentPlan?.name ?? 'Không xác định',
               style: const TextStyle(
-                fontSize: 28,
+                fontSize: AppFontSize.extraLarge,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
             const SizedBox(height: 12),
             _buildSubscriptionDateInfo(subscription),
-            const SizedBox(height: 16),
             _buildExpandableDetails(currentPlan),
             const SizedBox(height: 16),
             Align(
@@ -577,7 +575,7 @@ class _SubscriptionPlansPageState extends State<SubscriptionPlansPage>
                     _buildPlanPrice(plan),
                     const SizedBox(height: 24),
                     _buildPlanFeatures(plan),
-                    const SizedBox(height: 32),
+                    const SizedBox(height: 12),
                     _buildPurchaseButton(context, plan, state, isProcessing),
                   ],
                 ),
@@ -601,7 +599,7 @@ class _SubscriptionPlansPageState extends State<SubscriptionPlansPage>
           child: const Icon(
             Icons.workspace_premium,
             color: Colors.white,
-            size: 28,
+            size: 20,
           ),
         ),
         const SizedBox(width: 16),
@@ -609,7 +607,7 @@ class _SubscriptionPlansPageState extends State<SubscriptionPlansPage>
           child: Text(
             plan.name,
             style: const TextStyle(
-              fontSize: 24,
+              fontSize: AppFontSize.extraLarge,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -651,15 +649,15 @@ class _SubscriptionPlansPageState extends State<SubscriptionPlansPage>
           const Text(
             'Giá:',
             style: TextStyle(
-              fontSize: 18,
+              fontSize: AppFontSize.normal,
               color: Colors.white70,
               fontWeight: FontWeight.w500,
             ),
           ),
           Text(
-            '${(plan.price / 1000).toStringAsFixed(0)}.000 VNĐ',
+            '${(plan.price).toStringAsFixed(0)}.000 VNĐ',
             style: TextStyle(
-              fontSize: 24,
+              fontSize: AppFontSize.normal,
               fontWeight: FontWeight.bold,
               color: Colors.yellowAccent.shade100,
             ),
@@ -677,7 +675,7 @@ class _SubscriptionPlansPageState extends State<SubscriptionPlansPage>
         const Text(
           'Tính năng:',
           style: TextStyle(
-            fontSize: 18,
+            fontSize: AppFontSize.large,
             fontWeight: FontWeight.w600,
             color: Colors.white,
           ),
@@ -758,7 +756,7 @@ class _SubscriptionPlansPageState extends State<SubscriptionPlansPage>
             const Text(
               'Mua ngay',
               style: TextStyle(
-                fontSize: 18,
+                fontSize: AppFontSize.large,
                 fontWeight: FontWeight.bold,
               ),
             ),
