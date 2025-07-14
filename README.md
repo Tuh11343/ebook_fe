@@ -1,6 +1,6 @@
-# Ebook TUH
+# Ebook
 
-Ebook TUH là ứng dụng đọc sách và nghe sách nói đa nền tảng được phát triển bằng Flutter. Ứng dụng hỗ trợ quản lý thư viện sách, nghe audio book, tìm kiếm, đánh dấu, và nhiều tính năng hiện đại khác.
+Ebook là ứng dụng đọc sách và nghe sách nói đa nền tảng được phát triển bằng Flutter. Ứng dụng hỗ trợ quản lý thư viện sách, nghe audio book, tìm kiếm, đánh dấu, và nhiều tính năng hiện đại khác.
 
 ## Tính năng chính
 - Đọc sách điện tử (ebook) với giao diện đẹp, dễ sử dụng
